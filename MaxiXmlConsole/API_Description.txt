@@ -1,0 +1,504 @@
+﻿We have updated the current version of xml, the maxi-xml.
+
+We've review all of the old xml and added others, but our project is to replicate as many functions as possible as they are in the web version of Maxithlon, adding other xml too and considering your requests.
+
+All XML's root is "maxi-xml". The feedback of the xml files, if there are errors, will be reported in the tag "error" (see example below). To use maxi-xml the basic link is "http://www.maxithlon.com/maxi-xml/" followed by the xml you want access. To download any xml you must login to the maxi-xml with username and security code. You can set your security code in Settings->Change Password.
+
+Now to log in maxi-xml you'll must use something like this:
+http://www.maxithlon.com/maxi-xml/login.php?user=XXX&scode=***
+
+If it is correct the xml will be something similar to this:
+<?xml version="1.0" encoding="utf-8"?>
+<maxi-xml>
+<login>Login successful</login>
+</maxi-xml>
+
+Otherwise, if any error occurs, you can have an xml like the following:
+<?xml version="1.0" encoding="utf-8"?>
+<maxi-xml>
+<error>Login failed</error>
+</maxi-xml>
+
+
+Following the list of the available xml.
+
+login.php
+Description: To access to maxi-xml
+Parameters:
+- To log in using web based software (browser)
+1) user (username)
+2) scode (security code)
+
+- To log in using an application UPDATE
+3) password (could not be the same as scode)
+4) app (identification code of the app, only two registered for now, Android app or Apple app)
+
+- To log out NEW
+5) logout (use logout=1 as parameter to exit and close the session, any other value won't work)
+
+world.php
+Description: List of all Continents, Nations and Regions in Maxithlon. For every nation there is information if it is indipendent, and what is the competition day for NL and Club Campionships ("0" or "-1"). Also the weather forecast for the current day, tomorrow and after tomorrow. (NEW)
+
+calendar.php
+Description: List of all Competitions during the season. It will also report the current date, synchronized with the daily update task at the server. Times are show at the server local time. (NEW)
+Parameters:
+1) season (number of the season, if absent it will be the current season)
+
+team.php
+Description: Detail of the team
+Parameters:
+1) teamid (id of the team, if absent it will be the id of the login user)
+	<TeamResponse>
+	  <teamId>91624</teamId>
+	  <teamName>Great Divide AC</teamName>
+	  <owner>coachmikeb</owner>
+	  <founded>2021-02-16T16:07:11+01:00</founded>
+	  <youthFounded>2021-02-16T17:53:27+01:00</youthFounded>
+	  <arenaId>56760</arenaId>
+	  <arenaName>Penokee Memorial Center</arenaName>
+	  <leagueId>176</leagueId>
+	  <youthLeagueId>173</youthLeagueId>
+	  <nationId>18</nationId>
+	  <regionId>232</regionId>
+	  <budget>342140</budget>
+	  <maxitrainer>1</maxitrainer>
+	</TeamResponse>
+
+athlete.php
+Description: Detail of the athlete
+Parameters:
+1) athleteid (id of the athlete)
+2) bid (to make an offer on an athlete in the market, use it in combination with athleteid) (UPDATE)
+		<athlete index="1">
+			<athleteId>4285976</athleteId>
+			<name>Gabriella</name>
+			<surname>Lester</surname>
+			<sex>1</sex>
+			<age>36</age>
+			<nationId>18</nationId>
+			<owner>91624</owner>
+			<wage>3513</wage>
+			<height>165</height>
+			<weight>64</weight>
+			<fans>15</fans>
+			<sponsor id="218" money="316" tvMoney="395" weeks="4"/>
+			<maxid>11530</maxid>
+			<form>16</form>
+			<care>7</care>
+			<experience>14</experience>
+			<mood>13</mood>
+			<specialtyId>3</specialtyId>
+			<favoriteEventId>15</favoriteEventId>
+			<strenght>0</strenght>
+			<stamina>15</stamina>
+			<speed>11</speed>
+			<agility>0</agility>
+			<jump>0</jump>
+			<throw>0</throw>
+			<specialty1>11</specialty1>
+			<specialty2>11</specialty2>
+			<coachId>498306</coachId>
+			<injury>0</injury>
+			<sell deadline="0"/>
+			<youth>0</youth>
+			<specialtyIdTrained>0</specialtyIdTrained>
+			<diet>0</diet>
+			<trainingRetreat>0</trainingRetreat>
+			<numberEvents>10</numberEvents>
+			<lossFans>3</lossFans>
+			<trainingProgram coachId="498306" form="0" strenght="0" stamina="100" speed="0" agility="0" jump="0" throw="0" specialty1="0" specialty2="0" total="100"/>
+		</athlete>
+
+athletes.php
+Description: Detail of the team's athletes
+Parameters:
+1) teamid (id of the team, if absent it will be the id of the login user)
+
+	<maxi-xml>
+		<athlete index="1">
+			<athleteId>4285976</athleteId>
+			<name>Gabriella</name>
+			<surname>Lester</surname>
+			<sex>1</sex>
+			<age>36</age>
+			<nationId>18</nationId>
+			<owner>91624</owner>
+			<wage>3513</wage>
+			<height>165</height>
+			<weight>64</weight>
+			<fans>15</fans>
+			<sponsor id="218" money="316" tvMoney="395" weeks="4"/>
+			<maxid>11530</maxid>
+			<form>16</form>
+			<care>7</care>
+			<experience>14</experience>
+			<mood>13</mood>
+			<specialtyId>3</specialtyId>
+			<favoriteEventId>15</favoriteEventId>
+			<strenght>0</strenght>
+			<stamina>15</stamina>
+			<speed>11</speed>
+			<agility>0</agility>
+			<jump>0</jump>
+			<throw>0</throw>
+			<specialty1>11</specialty1>
+			<specialty2>11</specialty2>
+			<coachId>498306</coachId>
+			<injury>0</injury>
+			<sell deadline="0"/>
+			<youth>0</youth>
+			<specialtyIdTrained>0</specialtyIdTrained>
+			<diet>0</diet>
+			<trainingRetreat>0</trainingRetreat>
+			<numberEvents>10</numberEvents>
+			<lossFans>3</lossFans>
+			<trainingProgram coachId="498306" form="0" strenght="0" stamina="100" speed="0" agility="0" jump="0" throw="0" specialty1="0" specialty2="0" total="100"/>
+		</athlete>
+		<athlete>
+		   ......
+		</athlete>
+	</maxi-xml>
+
+
+coach.php
+Description: Detail of the coach
+Parameters:
+1) coachid (id of the coach)
+
+coaches.php
+Description: Detail of the team's coaches
+Parameters:
+1) teamid (id of the team, if absent it will be the id of the login user)
+
+weeklytest.php
+Description: List of the weekly test of the athlete
+Parameters:
+1) athleteid (id of the athlete, if absent the xml will be the test of all athletes of the login user)
+
+competition.php
+Description: Detail of the competition
+Parameters:
+1) competitionid (id of the competition)
+
+event.php
+Description: Detail and results of the event
+Parameters:
+1) eventid (id of the event)
+<?xml version="1.0" encoding="utf-8"?>
+<EventResponse>
+  <id>34247533</id>
+  <typeId>23</typeId>
+  <sex>0</sex>
+  <date>2022-02-10T22:00:00+01:00</date>
+  <status>3</status>
+  <heat index="1">
+    <athlete index="1">
+      <id>5030604</id>
+      <teamId>71602</teamId>
+      <performance>20.32</performance>
+      <placing>2</placing>
+      <score>733</score>
+    </athlete>
+    <athlete index="2">
+      <id>5037673</id>
+      <teamId>27064</teamId>
+      <performance>21.10</performance>
+      <placing>7</placing>
+      <score>636</score>
+    </athlete>
+    <athlete index="3">
+      <id>5068543</id>
+      <teamId>79958</teamId>
+      <performance>20.55</performance>
+      <placing>5</placing>
+      <score>705</score>
+    </athlete>
+    <athlete index="4">
+      <id>5075253</id>
+      <teamId>85424</teamId>
+      <performance>20.54</performance>
+      <placing>3</placing>
+      <score>706</score>
+    </athlete>
+  </heat>
+  <heat index="2">
+    <athlete index="5">
+      <id>5078917</id>
+      <teamId>76267</teamId>
+      <performance>19.86</performance>
+      <placing>1</placing>
+      <score>791</score>
+    </athlete>
+    <athlete index="6">
+      <id>5089962</id>
+      <teamId>91303</teamId>
+      <performance>20.55</performance>
+      <placing>4</placing>
+      <score>705</score>
+    </athlete>
+    <athlete index="7">
+      <id>5105641</id>
+      <teamId>15521</teamId>
+      <performance>20.56</performance>
+      <placing>6</placing>
+      <score>703</score>
+    </athlete>
+    <athlete index="8">
+      <id>5112009</id>
+      <teamId>82813</teamId>
+      <performance>21.32</performance>
+      <placing>8</placing>
+      <score>608</score>
+    </athlete>
+  </heat>
+</EventResponse>
+
+
+league.php
+Description: Detail, standings and calendar of the league
+Parameters:
+1) leagueid (id of the league, if absent it will be the id of the league in the choosen season of the teamid parameter)
+2) season (number of the season, if absent it will be the current season)
+3) teamid (if leagueid is not set, the id of league will be find by this parameter, if absent it will be the id of the login user)
+	<LeagueResponse>
+	  <leagueId>176</leagueId>
+	  <season>84</season>
+	  <nationId>18</nationId>
+	  <level>2</level>
+	  <number>2</number>
+	  <standing>
+		<team id="14870" position="0" points="0.0" eventScore="0"/>
+		<team id="92421" position="0" points="0.0" eventScore="0"/>
+		<team id="92377" position="0" points="0.0" eventScore="0"/>
+		<team id="92366" position="0" points="0.0" eventScore="0"/>
+		<team id="92264" position="0" points="0.0" eventScore="0"/>
+		<team id="92022" position="0" points="0.0" eventScore="0"/>
+		<team id="91978" position="0" points="0.0" eventScore="0"/>
+		<team id="91657" position="0" points="0.0" eventScore="0"/>
+		<team id="91624" position="0" points="0.0" eventScore="0"/>
+		<team id="91102" position="0" points="0.0" eventScore="0"/>
+		<team id="90813" position="0" points="0.0" eventScore="0"/>
+		<team id="90755" position="0" points="0.0" eventScore="0"/>
+		<team id="85032" position="0" points="0.0" eventScore="0"/>
+		<team id="78556" position="0" points="0.0" eventScore="0"/>
+		<team id="49747" position="0" points="0.0" eventScore="0"/>
+		<team id="92473" position="0" points="0.0" eventScore="0"/>
+	  </standing>
+	  <calendar>
+		<competition id="880326" status="0"/>
+		<competition id="880327" status="0"/>
+		<competition id="880328" status="0"/>
+		<competition id="880329" status="0"/>
+		<competition id="880330" status="0"/>
+		<competition id="880331" status="0"/>
+		<competition id="880332" status="0"/>
+		<competition id="880333" status="0"/>
+		<competition id="880335" status="0"/>
+		<competition id="880334" status="0"/>
+		<competition id="880336" status="0"/>
+		<competition id="880337" status="0"/>
+		<competition id="880338" status="0"/>
+		<competition id="880339" status="0"/>
+		<competition id="880340" status="0"/>
+		<competition id="880341" status="0"/>
+	  </calendar>
+	</LeagueResponse>
+
+performance.php
+Description: List of the perfomance of an athlete in a season
+Parameters:
+1) athleteid (id of the athlete)
+2) season (number of the season, if absent it will be the current season)
+
+UPDATE ON FILES
+market.php
+Description: List information about the athletes in the market. For some reason, you can only access this page from an application. I don't know why but, for now, I will keep it this way. It has a long list of parameters to refine your search in the market. When no parameters are specified it makes a wide broad search in the market.
+Parameters:
+1) lstr (minimum strength)
+2) hstr (maximum strength)
+3) lsta (minimum stamina)
+4) hsta (maximum stamina)
+5) lspe (minimum speed)
+6) hspe (maximum speed)
+7) lagi (minimum agility)
+8) hagi (maximum agility)
+9) ljum (minimum jump)
+10) hjum (maximum jump)
+11) lthr (minimum throw)
+12) hthr (maximum throw)
+13) lsp1 (minimum specialty1)
+14) hsp1 (maximum specialty1)
+15) lsp2 (minimum specialty2)
+16) hsp2 (maximum specialty2)
+17) lage (minimum age)
+18) hage (maximum age)
+19) lcar (minimum care)
+20) hcar (maximum care)
+21) lprize (minimum price)
+22) hprize (maximum price)
+23) lfan (minimum number of fans)
+24) hfan (maximum number of fans)
+25) lhig (minimum height)
+26) hhig (maximum height)
+27) lwei (minimum weight)
+28) hwei (maximum weight)
+29) freemarket (search only free market athletes, flag parameter, {0,1})
+30) normalmarket (search only normal market athletes, flag parameter, {0,1})
+31) sex (selects sex)
+32) nation (selects country)
+33) favevent (selects favourite event)
+34) specialty (selects specialty)
+35) page (selects listing page when the search returns more than 20 athletes)
+
+rss.php
+Description: List of the 10 latest news in Maxithlon
+
+settings.php
+Description: List information about the user settings. Doesn't accept any parameter, only shows the data of your own account.
+
+trades.php
+Description: List information about the trades in which the login user in involved. Doesn't accept any parameter, only shows the data of your own account.
+
+NEW FILES
+arena.php
+Description: Detail of the team's arena or stadium
+Parameters:
+1) arenaid (id of the arena, if absent it will be the id of the arena of the login user)
+
+relay.php
+Description: Detail of a relay
+Parameters:
+1) relayid (id of the relay)
+
+relays.php
+Description: Detail of the team's relays
+Parameters:
+1) teamid (id of the team, if absent it will be the id of the login user)
+
+relayperformance.php
+Description: List of the perfomance of a relay in a season
+Parameters:
+1) relayid (id of the relay)
+2) season (number of the season, if absent it will be the current season)
+
+relayweeklytest.php
+Description: List of the weekly test of the relay
+Parameters:
+1) relayid (id of the relay, if absent the xml will be the test of all of the relays of the login user)
+
+youthleague.php
+Description: Detail, standings and calendar of the youth league
+Parameters:
+1) leagueid (id of the youth league, if absent it will be the id of the youth league in the choosen season of the teamid parameter)
+2) season (number of the season, if absent it will be the current season)
+3) teamid (if leagueid is not set, the id of youth league will be find by this parameter, if absent it will be the id of the login user)
+
+Fixed data:
+a) Sex (athlete.php, athletes.php, coach.php, coaches.php, event.php, performance.php, relay.php, relays.php):
+- 0 = Male
+- 1 = Female
+
+b) SpecialtyId (athlete.php, athletes.php, coach.php, coaches.php):
+- 0 = No specialty
+- 1 = Sprinters
+- 2 = Middle Distance Runners
+- 3 = Long Distance Runners
+- 4 = Race Walkers
+- 5 = Jumpers
+- 6 = Throwers
+
+c) EventsId (athlete.php, athletes.php, coach.php, coaches.php, weeklytest.php, event.php, performance.php, relay.php, relay.php, relayweeklytest.php, relayperformance.php):
+- 1 = 100 Metres
+- 4 = 200 Metres
+- 6 = 400 Metres
+- 8 = 800 Metres
+- 11 = 1500 Metres
+- 14 = 5000 Metres
+- 15 = 10000 Metres
+- 19 = 3000 Steeplechase
+- 23 = 110 Hurdles
+- 25 = 400 Hurdles
+- 26 = High Jump
+- 27 = Pole Vault
+- 28 = Long Jump
+- 29 = Triple Jump
+- 31 = Shot Put
+- 32 = Discus Throw
+- 33 = Hammer Throw
+- 34 = Javelin Throw
+- 46 = 10Km Race Walk
+- 47 = 20Km Race Walk
+- 53 = Marathon
+- 72 = 50Km Race Walk
+- 80 = Relay 4x100
+- 90 = Relay 4x400
+
+d) CompetitionTypeId (competition.php):
+- 1 = Regional Meeting
+- 2 = National Meeting
+- 3 = Continental Meeting
+- 4 = International Meeting
+- 5 = Club Regional Championships
+- 6 = Club National Championships
+- 7 = Individual Regional Championships
+- 8 = Individual National Championships
+- 9 = Continental Championships
+- 10 = World Championships
+- 11 = Continental Junior Championships
+- 12 = Continental Master Championships
+- 13 = Champions Cup
+- 14 = World Junior Championships
+- 15 = National League
+- 16 = Olympic Games
+- 17 = World Master Championships
+- 18 = World U21 Championships
+- 19 = Continental U21 Championships
+- 20 = Youth League
+
+e) Standings (competition.php):
+- 0 = No standings
+- 1 = Standings by position
+- 2 = Standings by performance
+
+f) Meteo (competition.php, arena.php, calendar.php):
+- 0 = Snow
+- 1 = Storm
+- 2 = Rain
+- 3 = Overcast
+- 4 = Cloudy
+- 5 = Sunny
+
+g) Status (competition.php, event.php, league.php, youthleague.php):
+- 0 = Enrollment open
+- 1 = Enrollment closed
+- 2 = In progress
+- 3 = Ended
+
+h) Attitude (event.php, performance.php, relayperformance.php):
+- 0 = Low
+- 1 = Normal
+- 2 = High
+
+i) Diet (athlete.php, athletes.php):
+- 0 = No
+- 1 = Weight decrease
+- 2 = Weight increase
+
+j) lossFans (athlete.php, athletes.php)
+- 1 = This week no loss of fans because it is at the minimum (2)
+- 2 = This week 2% loss of fans because less than 5 events competed out of 10 weeks
+- 3 = This week no loss of fans because enough events competed
+
+k) type (relay.php, relays.php)
+- 1 = relay 4x100 m
+- 2 = relay 4x400 m
+
+l) category (relay.php, relays.php)
+- 1 = 0-9 years, junior, Sub21
+- 2 = 10-13 years, junior, Sub21
+- 3 = 14-17 years, junior, Sub21
+- 4 = 18-21 years, senior, Sub21
+- 5 = 22-34 years, senior
+- 6 = 35-39 years, master
+- 7 = 40-44 years, master
+- 8 = 45-99 years, master

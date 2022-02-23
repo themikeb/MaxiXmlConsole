@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>-youthperformance 84 2 "877073,877074,876993,876994,877013,877014,877033,877034,877053,877054,877093,877094,877113,877114,877133,877134,877153,877154,877173,877174,877193"</StartArguments>
+    <StartWorkingDirectory>C:\source\Maxithlon\test</StartWorkingDirectory>
+  </PropertyGroup>
+</Project>
